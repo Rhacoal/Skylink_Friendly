@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 LeonZhou.
+ * Copyright 2016 Rhacoal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ package com.github.rhacoal.skylink.friendly.bukkit;
 
 /**
  *
- * @author LeonZhou
+ * @author Rhacoal
  */
 public class Friendly_BukkitMain {
     

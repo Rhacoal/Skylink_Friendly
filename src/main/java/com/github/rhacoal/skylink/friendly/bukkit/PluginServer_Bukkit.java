@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 LeonZhou.
+ * Copyright 2016 Rhacoal.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import java.util.Properties;
 
 /**
  *
- * @author LeonZhou
+ * @author Rhacoal
  */
 public class PluginServer_Bukkit implements PluginServer {
     

@@ -6,5 +6,5 @@ About half a year ago (that's quiet long), I was running a Minecraft server with
 plugins which include this, __Plugin Friendly__. It was just a simple idea of that a player can have a friendly level which affects his 
 permission. For example, if he's always yelling bad words, he will be muted.
 ### How is the development going
-It's still under heavy development. The project has been restarted for several times since I'm always considering what should I do and 
-I'm working on different computers before I use _Github_.
+It's still under heavy development. The project has been restarted several times since I'm always considering what should I do and 
+I was working on different computers without _Github_.

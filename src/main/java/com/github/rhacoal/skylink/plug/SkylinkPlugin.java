@@ -13,23 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.bukkit;
+package com.github.rhacoal.skylink.plug;
 
-import com.github.rhacoal.skylink.friendly.Friendly;
-import com.github.rhacoal.skylink.plug.PluginServer;
-import org.bukkit.plugin.java.JavaPlugin;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  *
  * @author Rhacoal
  */
-public class Friendly_Bukkit extends JavaPlugin {
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SkylinkPlugin {
     
-    private final Friendly friendly;
-    private final PluginServer plugserver=new PluginServer_Bukkit(this.getServer());
-    
-    public Friendly_Bukkit(){
-        friendly=plugserver.preparePlugin(Friendly.class, "Skylink Friendly", "1.0", "Skylink Friendly");
-    }
+    String name();
+    String version();
+    String description();
     
 }

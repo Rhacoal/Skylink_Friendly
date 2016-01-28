@@ -13,23 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.bukkit;
-
-import com.github.rhacoal.skylink.friendly.Friendly;
-import com.github.rhacoal.skylink.plug.PluginServer;
-import org.bukkit.plugin.java.JavaPlugin;
+package com.github.rhacoal.skylink.friendly;
 
 /**
  *
  * @author Rhacoal
  */
-public class Friendly_Bukkit extends JavaPlugin {
+public enum Messages {
     
-    private final Friendly friendly;
-    private final PluginServer plugserver=new PluginServer_Bukkit(this.getServer());
+    FAILURE_CREATE_CONFIG("Failed to create configuration file"),
+    FAILURE_DELETE_ORIGINAL_FOLDER("Failed to delete the folder");
     
-    public Friendly_Bukkit(){
-        friendly=plugserver.preparePlugin(Friendly.class, "Skylink Friendly", "1.0", "Skylink Friendly");
+    private final String value;
+    
+    Messages(String value){
+        this.value=value;
     }
     
+    @Override
+    public String toString(){
+        return value;
+    }
+        
 }

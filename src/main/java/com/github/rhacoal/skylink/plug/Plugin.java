@@ -15,27 +15,37 @@
  */
 package com.github.rhacoal.skylink.plug;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author Rhacoal
  */
 public abstract class Plugin {
     
-    private final String name, version, description;
-    private final PluginServer server;
+    private String name, version, description;
+    private PluginServer server;
     
-    Plugin(String name, String version, String description, PluginServer server){
+    public void initPlugin(String name, String version, String description, PluginServer server){
         this.name=name;
         this.version=version;
         this.description=description;
         this.server=server;
     }
     
-    public Description getDescription(){
-        return new Description();
+    public PluginInfo getInfo(){
+        return new PluginInfo();
     }
     
-    public class Description{
+    public Logger getLogger(){
+        return server.getLogger(this);
+    }
+    
+    public String getDataFolder(){
+        return server.getPluginDataFolder(this);
+    }
+    
+    public class PluginInfo{
         
         public String getName(){
             return name;

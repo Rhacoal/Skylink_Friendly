@@ -13,24 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.plug;
-
-import java.sql.Connection;
+package com.github.rhacoal.skylink.plug;
 
 /**
  *
  * @author Rhacoal
  */
-public abstract class SQLConnector {
+public interface PluginWorld extends PluginUUIDandName{
     
-    private final Connection conn;
     
-    public SQLConnector(Connection conn){
-        this.conn=conn;
-    }
-    
-    public Connection getConnection(){
-        return conn;
-    }
     
 }

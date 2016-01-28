@@ -13,38 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly;
-
-import com.github.rhacoal.skylink.plug.PluginServer;
-import com.github.rhacoal.skylink.plug.SQLConnector;
+package com.github.rhacoal.skylink.plug;
 
 /**
  *
  * @author Rhacoal
  */
-public class Friendly {
+public interface PluginLocation {
     
-    private final PluginServer server;
-    private SQLConnector sqlc;
+    public double getX();
     
-    public void load() {
-        
-    }
+    public double getZ();
     
-    public void enable() {
-        
-    }
+    public double getY();
     
-    public void disable() {
-        
-    }
+    public float getPitch();
     
-    public void unload() {
-        
-    }
+    public float getYaw();
     
-    public Friendly(PluginServer server) {
-        this.server=server;
-    }
+    public PluginWorld getWorld();
+    
+    @Override
+    public String toString();
     
 }

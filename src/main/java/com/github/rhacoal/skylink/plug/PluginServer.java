@@ -13,38 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly;
+package com.github.rhacoal.skylink.plug;
 
-import com.github.rhacoal.skylink.plug.PluginServer;
-import com.github.rhacoal.skylink.plug.SQLConnector;
+import java.util.UUID;
+
 
 /**
  *
  * @author Rhacoal
  */
-public class Friendly {
+public interface PluginServer {
     
-    private final PluginServer server;
-    private SQLConnector sqlc;
+    public PluginPlayer[] getOnlinePlayers();
     
-    public void load() {
-        
-    }
+    public PluginPlayer getOnlinePlayer(String name);
     
-    public void enable() {
-        
-    }
+    public PluginPlayer getOnlinePlayer(UUID uuid);
     
-    public void disable() {
-        
-    }
+    public PluginOfflinePlayer getPlayer(String name);
     
-    public void unload() {
-        
-    }
+    public PluginOfflinePlayer getPlayer(UUID uuid);
     
-    public Friendly(PluginServer server) {
-        this.server=server;
-    }
+    public boolean isPlayerOnline(String name);
+    
+    public boolean isPlayerOnline(UUID uuid);
+    
+    public PluginWorld getWorld(String name);
+    
+    public PluginWorld getWorld(UUID uuid);
     
 }

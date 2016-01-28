@@ -13,38 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly;
+package com.github.rhacoal.skylink.friendly.bukkit;
 
-import com.github.rhacoal.skylink.plug.PluginServer;
-import com.github.rhacoal.skylink.plug.SQLConnector;
+import com.github.rhacoal.skylink.friendly.Friendly;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
  * @author Rhacoal
  */
-public class Friendly {
+public class Friendly_Bukkit extends JavaPlugin {
     
-    private final PluginServer server;
-    private SQLConnector sqlc;
+    Friendly friendly;
     
-    public void load() {
-        
-    }
-    
-    public void enable() {
-        
-    }
-    
-    public void disable() {
-        
-    }
-    
-    public void unload() {
-        
-    }
-    
-    public Friendly(PluginServer server) {
-        this.server=server;
+    public Friendly_Bukkit(){
+        friendly=new Friendly(new PluginServer_Bukkit(this.getServer()));
     }
     
 }

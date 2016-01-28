@@ -15,8 +15,8 @@
  */
 package com.github.rhacoal.skylink.friendly.util;
 
-import com.github.rhacoal.skylink.friendly.plug.SQLConnector;
-import com.github.rhacoal.skylink.friendly.plug.SQLWatchDog;
+import com.github.rhacoal.skylink.plug.SQLConnector;
+import com.github.rhacoal.skylink.plug.SQLWatchDog;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

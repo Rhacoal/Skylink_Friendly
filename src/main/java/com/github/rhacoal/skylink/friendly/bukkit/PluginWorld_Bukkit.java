@@ -15,10 +15,19 @@
  */
 package com.github.rhacoal.skylink.friendly.bukkit;
 
+import com.github.rhacoal.skylink.plug.PluginWorld;
+import org.bukkit.World;
+
 /**
  *
  * @author Rhacoal
  */
-public class Friendly_BukkitMain {
+public class PluginWorld_Bukkit implements PluginWorld {
+    
+    private final World world;
+    
+    public PluginWorld_Bukkit(World world){
+        this.world=world;
+    }
     
 }

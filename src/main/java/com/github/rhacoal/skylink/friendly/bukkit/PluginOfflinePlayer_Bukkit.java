@@ -13,14 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.plug;
+package com.github.rhacoal.skylink.friendly.bukkit;
+
+import com.github.rhacoal.skylink.plug.PluginOfflinePlayer;
+import java.util.UUID;
+import org.bukkit.OfflinePlayer;
 
 /**
  *
  * @author Rhacoal
  */
-public interface WatchDog {
+class PluginOfflinePlayer_Bukkit implements PluginOfflinePlayer {
+
+    private final OfflinePlayer player;
     
-    public boolean watch();
+    public PluginOfflinePlayer_Bukkit(OfflinePlayer offlinePlayer) {
+        this.player=offlinePlayer;
+    }
+
+    @Override
+    public UUID getUUID() {
+        return player.getUniqueId();
+    }
+
+    @Override
+    public String getName() {
+        return player.getName();
+    }
     
 }

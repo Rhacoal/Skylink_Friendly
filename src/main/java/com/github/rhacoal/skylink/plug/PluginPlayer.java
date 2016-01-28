@@ -13,18 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.plug;
-
-import java.sql.SQLException;
+package com.github.rhacoal.skylink.plug;
 
 /**
  *
  * @author Rhacoal
  */
-public interface SQLWatchDog extends WatchDog {
+public interface PluginPlayer extends PluginOfflinePlayer, PluginEntity {
     
-    public void onDisconnection();
-    
-    public void onConnectionFailed(SQLConnector sqlc,SQLException ex);
     
 }

@@ -15,6 +15,7 @@
  */
 package com.github.rhacoal.skylink.plug;
 
+import java.util.Map;
 import java.util.UUID;
 
 
@@ -41,5 +42,7 @@ public interface PluginServer {
     public PluginWorld getWorld(String name);
     
     public PluginWorld getWorld(UUID uuid);
+    
+    public String getPluginDataFolder(Plugin plugin);
     
 }

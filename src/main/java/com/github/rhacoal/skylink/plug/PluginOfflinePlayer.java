@@ -15,8 +15,6 @@
  */
 package com.github.rhacoal.skylink.plug;
 
-import java.util.UUID;
-
 /**
  *
  * @author Rhacoal

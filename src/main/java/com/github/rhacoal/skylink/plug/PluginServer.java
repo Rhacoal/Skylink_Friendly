@@ -49,6 +49,6 @@ public interface PluginServer {
     
     public Logger getLogger(Plugin plugin);
     
-    public <T extends Plugin> T preparePlugin(Class<T> plugin, String name, String version, String description);
+    public <T extends Plugin> T preparePlugin(Class<T> plugin);
     
 }

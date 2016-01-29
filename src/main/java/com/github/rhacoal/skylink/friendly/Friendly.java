@@ -17,15 +17,11 @@ package com.github.rhacoal.skylink.friendly;
 
 import com.github.rhacoal.skylink.plug.Plugin;
 import com.github.rhacoal.skylink.plug.PluginServer;
+import com.github.rhacoal.skylink.plug.PluginTools;
 import com.github.rhacoal.skylink.plug.SQLConnector;
 import com.github.rhacoal.skylink.plug.SkylinkPlugin;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -36,26 +32,30 @@ public class Friendly extends Plugin {
     
     private SQLConnector sqlc;
     private Properties prop;
+    private static final Properties defaultprop;
+    private File config_file;
+    
+    static{
+        Properties prop=new Properties();
+        prop.setProperty("MySQL_url", "jdbc:mysql://127.0.0.1:3306");
+        prop.setProperty("user", "root");
+        prop.setProperty("password", "");
+        prop.setProperty("database", "db");
+        prop.setProperty("prefix", "friendly_");
+        defaultprop=prop;
+    }
+    
+    @Override
+    public void initPlugin(String name, String version, String description, PluginServer server){
+        super.initPlugin(name, version, description, server);
+        config_file=new File(getDataFolder()+"/config.txt");
+    }
     
     public void load() {
-        File file=new File(getDataFolder()+"/config");
-        if (!file.exists()){
-            try {
-                file.createNewFile();
-            } catch (IOException ex) {
-                getLogger().warning("Failed to create configuration file");
-            }
-        } else if (file.isDirectory()) {
-            if (!file.delete()) {
-                
-            }
-        }
-        try {
-            prop.load(new FileInputStream(file));
-        } catch (FileNotFoundException ex) {
-            
-        } catch (IOException ex) {
-            
+        if (config_file.exists()) {
+            loadConfiguration();
+        } else {
+            loadDefaultConfiguration();
         }
     }
     
@@ -69,6 +69,14 @@ public class Friendly extends Plugin {
     
     public void unload() {
         
+    }
+    
+    public void loadConfiguration(){
+        prop=PluginTools.loadProperties(getDataFolder()+"/config.txt");
+    }
+    
+    public void loadDefaultConfiguration(){
+        this.prop=(Properties)defaultprop.clone();
     }
     
 }

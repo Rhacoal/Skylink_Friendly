@@ -13,21 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.bukkit;
+package com.github.rhacoal.skylink.friendly;
 
-import com.github.rhacoal.skylink.plug.PluginWorld;
-import org.bukkit.World;
+import com.github.rhacoal.skylink.friendly.Friendly;
+import com.github.rhacoal.skylink.plug.bukkit.PluginServer_Bukkit;
+import com.github.rhacoal.skylink.plug.PluginServer;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
  * @author Rhacoal
  */
-public class PluginWorld_Bukkit implements PluginWorld {
+public class Friendly_Bukkit extends JavaPlugin {
     
-    private final World world;
+    private final Friendly friendly;
+    private final PluginServer plugserver=new PluginServer_Bukkit(this.getServer());
     
-    public PluginWorld_Bukkit(World world){
-        this.world=world;
+    public Friendly_Bukkit(){
+        friendly=plugserver.preparePlugin(Friendly.class);
     }
     
 }

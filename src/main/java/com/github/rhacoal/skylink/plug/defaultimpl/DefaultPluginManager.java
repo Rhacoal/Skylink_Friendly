@@ -24,7 +24,7 @@ import java.util.Map;
  *
  * @author Rhacoal
  */
-public class PluginManagerImpl implements PluginManager {
+public class DefaultPluginManager implements PluginManager {
 
     private final Map<String, Plugin> pluginMap=new HashMap<>();
     

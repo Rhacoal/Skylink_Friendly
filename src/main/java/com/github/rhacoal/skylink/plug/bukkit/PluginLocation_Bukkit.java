@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.bukkit;
+package com.github.rhacoal.skylink.plug.bukkit;
 
 import com.github.rhacoal.skylink.plug.PluginLocation;
-import com.github.rhacoal.skylink.plug.PluginServer;
 import com.github.rhacoal.skylink.plug.PluginWorld;
 //import org.spongepowered.api.world.Location;
 import org.bukkit.Location;

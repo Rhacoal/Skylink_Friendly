@@ -22,7 +22,8 @@ package com.github.rhacoal.skylink.friendly;
 public enum Messages {
     
     FAILURE_CREATE_CONFIG("Failed to create configuration file"),
-    FAILURE_DELETE_ORIGINAL_FOLDER("Failed to delete the folder");
+    FAILURE_DELETE_ORIGINAL_FOLDER("Failed to delete the folder"),
+    FILE_NOT_ACCESSIBLE("The config file or its parent folders are not accessible");
     
     private final String value;
     

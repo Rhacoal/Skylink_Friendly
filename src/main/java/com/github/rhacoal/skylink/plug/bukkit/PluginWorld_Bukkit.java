@@ -13,32 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.bukkit;
+package com.github.rhacoal.skylink.plug.bukkit;
 
-import com.github.rhacoal.skylink.plug.PluginOfflinePlayer;
+import com.github.rhacoal.skylink.plug.PluginWorld;
 import java.util.UUID;
-import org.bukkit.OfflinePlayer;
+import org.bukkit.World;
 
 /**
  *
  * @author Rhacoal
  */
-class PluginOfflinePlayer_Bukkit implements PluginOfflinePlayer {
-
-    private final OfflinePlayer player;
+public class PluginWorld_Bukkit implements PluginWorld {
     
-    public PluginOfflinePlayer_Bukkit(OfflinePlayer offlinePlayer) {
-        this.player=offlinePlayer;
+    private final World world;
+    
+    public PluginWorld_Bukkit(World world){
+        this.world=world;
     }
 
     @Override
     public UUID getUUID() {
-        return player.getUniqueId();
+        return world.getUID();
     }
 
     @Override
     public String getName() {
-        return player.getName();
+        return world.getName();
     }
     
 }

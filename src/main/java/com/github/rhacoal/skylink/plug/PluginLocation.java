@@ -33,7 +33,5 @@ public interface PluginLocation {
     
     public PluginWorld getWorld();
     
-    @Override
-    public String toString();
     
 }

@@ -13,24 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.bukkit;
+package com.github.rhacoal.skylink.plug.bukkit;
 
-import com.github.rhacoal.skylink.plug.PluginLocation;
-import com.github.rhacoal.skylink.plug.PluginPlayer;
+import com.github.rhacoal.skylink.plug.PluginOfflinePlayer;
 import java.util.UUID;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
+import org.bukkit.OfflinePlayer;
 
 /**
  *
  * @author Rhacoal
  */
-public class PluginPlayer_Bukkit implements PluginPlayer {
+class PluginOfflinePlayer_Bukkit implements PluginOfflinePlayer {
+
+    private final OfflinePlayer player;
     
-    private final Player player;
-    
-    public PluginPlayer_Bukkit(Player player){
-        this.player=player;
+    public PluginOfflinePlayer_Bukkit(OfflinePlayer offlinePlayer) {
+        this.player=offlinePlayer;
     }
 
     @Override
@@ -41,21 +39,6 @@ public class PluginPlayer_Bukkit implements PluginPlayer {
     @Override
     public String getName() {
         return player.getName();
-    }
-
-    @Override
-    public PluginLocation getLocation() {
-        return new PluginLocation_Bukkit(player.getLocation());
-    }
-
-    @Override
-    public void teleport(PluginLocation loc) {
-        player.teleport(new PluginLocation_Bukkit(player.getServer(), loc).getBukkitLocation());
-    }
-
-    @Override
-    public double getHealth() {
-        return player.getHealth();
     }
     
 }

@@ -13,38 +13,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.plug.bukkit;
+package com.github.rhacoal.skylink.plug.sponge;
 
 import com.github.rhacoal.skylink.plug.PluginLocation;
 import com.github.rhacoal.skylink.plug.PluginPlayer;
-import org.bukkit.entity.Player;
+import org.spongepowered.api.entity.living.player.Player;
 
 /**
  *
  * @author Rhacoal
  */
-public class PluginPlayer_Bukkit extends PluginOfflinePlayer_Bukkit implements PluginPlayer {
+public class PluginPlayer_Sponge extends PluginOfflinePlayer_Sponge implements PluginPlayer {
+
+    private Player player;
     
-    private final Player player;
-    
-    public PluginPlayer_Bukkit(Player player){
+    public PluginPlayer_Sponge(Player player) {
         super(player);
         this.player=player;
     }
-    
+
     @Override
     public PluginLocation getLocation() {
-        return new PluginLocation_Bukkit(player.getLocation());
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void teleport(PluginLocation loc) {
-        player.teleport(new PluginLocation_Bukkit(player.getServer(), loc).getBukkitLocation());
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public double getHealth() {
-        return player.getHealth();
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -28,7 +28,8 @@ import java.util.logging.Logger;
  */
 public abstract class AbstractPluginServer implements PluginServer {
     
-    public static final String LOGGER_NAME="Plugin Framework for Skylink";
+    public static final String FRAME_NAME="Plugin Framework for Skylink";
+    public static final String FRAME_VERSION="1.0";
     
     PluginManager pm=new DefaultPluginManager();
 
@@ -39,7 +40,7 @@ public abstract class AbstractPluginServer implements PluginServer {
     
     @Override
     public Logger getLogger() {
-        return Logger.getLogger(LOGGER_NAME);
+        return Logger.getLogger(FRAME_NAME);
     }
     
     @Override

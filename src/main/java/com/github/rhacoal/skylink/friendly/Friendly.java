@@ -20,8 +20,11 @@ import com.github.rhacoal.skylink.plug.PluginServer;
 import com.github.rhacoal.skylink.plug.PluginTools;
 import com.github.rhacoal.skylink.plug.SQLConnector;
 import com.github.rhacoal.skylink.plug.SkylinkPlugin;
+import com.github.rhacoal.skylink.plug.defaultimpl.MySQLConnector;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.Properties;
+import java.util.logging.Level;
 
 /**
  *
@@ -37,7 +40,9 @@ public class Friendly extends Plugin {
     
     static{
         Properties prop=new Properties();
-        prop.setProperty("MySQL_url", "jdbc:mysql://127.0.0.1:3306");
+        prop.setProperty("address", "127.0.0.1");
+        prop.setProperty("port", "3306");
+        prop.setProperty("addtional-connection-params", "?characterEncoding=UTF-8");
         prop.setProperty("user", "root");
         prop.setProperty("password", "");
         prop.setProperty("database", "db");
@@ -51,22 +56,45 @@ public class Friendly extends Plugin {
         config_file=new File(getDataFolder()+"/config.txt");
     }
     
+    @Override
     public void load() {
         if (config_file.exists()) {
             loadConfiguration();
         } else {
             loadDefaultConfiguration();
+            PluginTools.storeProperties(prop, config_file, "default settings for Plugin Skylink");
         }
     }
     
+    @Override
     public void enable() {
-        
+        String url = "jdbc:mysql://"+prop.getProperty("address","127.0.0.1")+":"+prop.getProperty("port","3306");
+        String user = prop.getProperty("user","root");
+        String password = prop.getProperty("password","");
+        try {
+            sqlc=MySQLConnector.connect(url, user, password);
+        } catch (SQLException ex) {
+            try {
+                sqlc=MySQLConnector.connect(url, user, password);
+            } catch(SQLException ex1) {
+                getLogger().severe("Failed to handle sql exception(s)! Details:");
+                do {
+                    getLogger().log(Level.SEVERE, null, ex1.getMessage());
+                } while((ex1=ex1.getNextException())!=null);
+            }
+        }
     }
     
+    @Override
     public void disable() {
-        
+        try {
+            sqlc.getConnection().close();
+        } catch (SQLException ex) {
+            getLogger().log(Level.SEVERE, null, ex);
+        }
     }
     
+    @Override
     public void unload() {
         
     }

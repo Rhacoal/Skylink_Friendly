@@ -31,7 +31,7 @@ import java.util.logging.Logger;
 public final class PluginTools {
     
     private static Logger getServerLogger() {
-        return Logger.getLogger(com.github.rhacoal.skylink.plug.defaultimpl.AbstractPluginServer.LOGGER_NAME);
+        return Logger.getLogger(com.github.rhacoal.skylink.plug.defaultimpl.AbstractPluginServer.FRAME_NAME);
     }
     
     public static File createFile(String fileName) throws SecurityException {

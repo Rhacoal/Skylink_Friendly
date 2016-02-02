@@ -13,23 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly;
+package com.github.rhacoal.skylink.plug.sponge;
 
-import com.github.rhacoal.skylink.plug.bukkit.PluginServer_Bukkit;
-import com.github.rhacoal.skylink.plug.PluginServer;
-import org.bukkit.plugin.java.JavaPlugin;
+import com.github.rhacoal.skylink.plug.PluginOfflinePlayer;
+import java.util.UUID;
+import org.spongepowered.api.entity.living.player.User;
 
 /**
  *
  * @author Rhacoal
  */
-public class Friendly_Bukkit extends JavaPlugin {
+public class PluginOfflinePlayer_Sponge implements PluginOfflinePlayer {
+
+    private User user;
     
-    private final Friendly friendly;
-    private final PluginServer plugserver=new PluginServer_Bukkit(this.getServer());
+    public PluginOfflinePlayer_Sponge(User user){
+        this.user=user;
+    }
     
-    public Friendly_Bukkit(){
-        friendly=plugserver.preparePlugin(Friendly.class);
+    @Override
+    public UUID getUUID() {
+        return user.getUniqueId();
+    }
+
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

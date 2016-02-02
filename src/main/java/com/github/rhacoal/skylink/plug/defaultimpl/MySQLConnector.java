@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.rhacoal.skylink.friendly.util;
+package com.github.rhacoal.skylink.plug.defaultimpl;
 
 import com.github.rhacoal.skylink.plug.SQLConnector;
 import com.github.rhacoal.skylink.plug.SQLWatchDog;
